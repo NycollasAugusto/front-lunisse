@@ -20,9 +20,10 @@ import { Agendamento } from "../pages/Agendamentos";
 import { ChatIA } from "../pages/ChatIA";
 import { Relatorios } from "../pages/Relatorio";
 import { Paciente } from "../pages/Pacientes";
-import { PacienteDetalhe } from "../pages/PacienteDetalhe"
+import { PacienteDetalhes } from "../pages/PacienteDetalhe"
 import { useAuth } from "../context/AuthContext";
 import { Solicitacoes } from "../pages/Solicitacoes";
+import { SessaoDetalhes } from "../pages/SessãoDetalhes";
 
 // Rota protegida
 const ProtectedRoute = ({ children }) => {
@@ -39,7 +40,7 @@ const ProtectedRoute = ({ children }) => {
   return (
     <div className="min-h-screen flex bg-gray-50">
       <Sidebar />
-      <motion.main 
+      <motion.main
         className="flex-1 lg:ml-64 p-6"
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
@@ -93,12 +94,17 @@ export const AppRoutes = () => {
         <Route path="/solicitacoes" element={<ProtectedRoute><Solicitacoes /></ProtectedRoute>} />
         <Route path="/pacientes" element={<ProtectedRoute><Paciente /></ProtectedRoute>} />
         <Route path="/paciente/:id" element={
-            <ProtectedRoute>
-              <PacienteDetalhe /> {/* Página de detalhes de paciente específico */}
-            </ProtectedRoute>
-          } />
-          
-        
+          <ProtectedRoute>
+            <PacienteDetalhes /> {/* Página de detalhes de paciente específico */}
+          </ProtectedRoute>
+        } />
+
+        <Route path="/sessao/:sessionId" element={
+          <ProtectedRoute>
+            <SessaoDetalhes /> {/* Detalhes de sessão específica */}
+          </ProtectedRoute>
+        } />
+
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
