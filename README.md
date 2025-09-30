@@ -1,117 +1,105 @@
-# 🧠 pSICOAGENDA - Plataforma de Atendimento Psicológico Online  
+#  pSICOAGENDA - Plataforma de Atendimento Psicológico Online  
+
+<img src="./docs/psicoagenda-moodboard.png" alt="Logo e Moodboard do PsicoAgenda" width="600" />
 
 Sistema web moderno para marcação e acompanhamento de consultas psicológicas pela internet, desenvolvido com **HTML**, **Tailwind CSS** e **Lucide React**.  
 Focado em proporcionar acolhimento, acessibilidade e segurança em atendimentos psicológicos online.  
 
----
-
-## 📋 Índice  
-- [Sobre o Projeto](#-sobre-o-projeto)  
-- [Funcionalidades](#-funcionalidades)  
-- [Tecnologias](#-tecnologias)  
-- [Instalação](#-instalação)  
-- [Uso](#-uso)  
-- [Estrutura do Projeto](#-estrutura-do-projeto)  
-- [Design System](#-design-system)  
-- [Contribuição](#-contribuição)  
-- [Licença](#-licença)  
 
 ---
 
-## 🎯 Sobre o Projeto  
+##  Sobre o Projeto  
 
-O **pSICOAGENDA** é uma aplicação web voltada para o agendamento de atendimentos psicológicos online.  
-Construída com foco em **simplicidade**, **responsividade** e **boas práticas**, a plataforma oferece um ambiente seguro e intuitivo para psicólogos e pacientes.  
+O **pSICOAGENDA** é uma aplicação web desenvolvida para facilitar o agendamento e gestão de atendimentos psicológicos **100% online**.  
+A plataforma busca unir **tecnologia e bem-estar**, trazendo uma experiência simples, acolhedora e segura tanto para pacientes quanto para psicólogos.  
 
 **Objetivos**:  
-- Facilitar o agendamento de consultas online  
-- Disponibilizar interface clara e responsiva  
-- Oferecer espaço confiável para profissionais e pacientes  
-- Integrar ícones e design moderno com Lucide React  
+- Simplificar o processo de agendamento de consultas online  
+- Criar um ambiente confiável e responsivo  
+- Proporcionar interface acolhedora inspirada na psicologia  
+- Garantir acessibilidade e usabilidade em diferentes dispositivos  
 
 ---
 
-## ✨ Funcionalidades  
+##  Funcionalidades  
 
-👨‍⚕️ **Para Psicólogos**  
-- Visualizar lista de pacientes  
-- Acompanhar histórico de sessões  
-- Gerenciar agendamentos  
+ **Para Psicólogos**  
+- Gestão de pacientes cadastrados  
+- Histórico de sessões  
+- Controle de agenda e disponibilidade  
 
-👤 **Para Pacientes**  
-- Realizar cadastro e login  
-- Marcar sessões com psicólogos disponíveis  
-- Consultar histórico de agendamentos  
+ **Para Pacientes**  
+- Cadastro rápido e intuitivo  
+- Agendamento online de consultas  
+- Histórico de atendimentos  
 
-🔐 **Sistema de Autenticação (planejado)**  
-- Login e registro de usuários  
+ **Sistema de Autenticação (planejado)**  
+- Registro e login de usuários  
 - Perfis diferenciados (psicólogo/paciente)  
-- Proteção de rotas por tipo de usuário  
+- Proteção de rotas de acordo com permissões  
 
----
 
-## 🛠 Tecnologias  
 
-- **HTML5** – Estrutura semântica  
+##  Tecnologias  
+
+- **HTML5** – Estrutura semântica e acessível  
 - **Tailwind CSS** – Estilização moderna e responsiva  
 - **Lucide React** – Ícones minimalistas e acessíveis  
-- **Boas práticas** – Mobile-first, acessibilidade e organização de componentes  
+- **Boas práticas** – Mobile-first, acessibilidade e organização de código  
 
----
 
-## 🚀 Instalação  
 
 ### Pré-requisitos  
 - Navegador atualizado  
-- Node.js + npm (se utilizar dependências do Lucide React ou build tools)  
+- Node.js + npm (para rodar dependências do Lucide React)  
 
 ### Passos  
-```bash
+bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/pSICOAGENDA.git
+git clone 
+NycollasAugusto/front-lunisse
 
 # Acesse o diretório
-cd pSICOAGENDA
+cd psicoagenda
 
 # Instale dependências (se aplicável)
 npm install
 
 # Execute em modo de desenvolvimento
 npm run dev
-💻 Uso
-Acesse o projeto no navegador (http://localhost:5173 ou similar).
+ Uso
+Abra no navegador (http://localhost:5173).
 
-Faça login como paciente ou psicólogo (contas de teste podem ser adicionadas).
+Faça login como paciente ou psicólogo.
 
-Navegue pela interface para visualizar agendamentos e funcionalidades.
+Explore a interface: agendamento, histórico e gestão de consultas.
 
-📁 Estrutura do Projeto
-graphql
+ Estrutura do Projeto
+
 Copiar código
-pSICOAGENDA/
-├── index.html        # Estrutura principal
-├── src/
-│   ├── components/   # Componentes reutilizáveis
-│   │   ├── Button.jsx
-│   │   ├── Card.jsx
-│   │   ├── Input.jsx
-│   │   └── Navbar.jsx
-│   ├── pages/        # Páginas principais
-│   │   ├── Home.jsx
-│   │   ├── Login.jsx
-│   │   ├── Register.jsx
-│   │   └── Dashboard.jsx
-│   ├── assets/       # Imagens, ícones e estilos
-│   └── styles/       # Tailwind config e utilitários
-└── package.json
-🎨 Design System
+psicoagenda/
+ index.html        # Estrutura principal
+ src/
+ components/   # Componentes reutilizáveis
+ Button.jsx
+ Input.jsx
+ Navbar.jsx
+ pages/        # Páginas principais
+ Home.jsx
+ Register.jsx
+ Dashboard.jsx
+ assets/       # Logos, imagens, ícones
+styles/       # Configuração do Tailwind e utilitários
+package.json
+ Design System
+<img src="./docs/psicoagenda-moodboard.png" alt="Moodboard PsicoAgenda" width="500" />
 Paleta de Cores
 
-Primária: Azul-claro (acolhimento e confiança)
+#C0785A – Terra (acolhimento, segurança)
 
-Secundária: Cinza-claro (neutralidade e clareza)
+#A66E5C – Marrom médio (estabilidade)
 
-Acento: Verde-água (destaques e confirmações)
+#EBCFD1 – Rosa claro (leveza e empatia)
 
 Tipografia
 
@@ -119,48 +107,21 @@ Fonte principal: Inter (limpa e moderna)
 
 Fonte secundária: Nunito (texto fluido e acolhedor)
 
-Componentes base
+Componentes Base
 
-<Button /> – Botão estilizado com Tailwind
+<Button /> – Botão customizado com Tailwind
 
-<Card /> – Container de conteúdo com sombra suave
+<Card /> – Container para informações
 
 <Navbar /> – Barra de navegação responsiva
 
-<Input /> – Campos de formulário com validação
+<Input /> – Campo de formulário estilizado
 
-🤝 Contribuição
-Faça um fork do projeto
+Desenvolvedor Principal: [Nycollas Augusto Teodosio da Silva Batista ]
 
-Crie uma branch (git checkout -b feature/NomeDaFeature)
 
-Faça commit das alterações (git commit -m 'Adiciona nova feature')
 
-Faça push para a branch (git push origin feature/NomeDaFeature)
 
-Abra um Pull Request
 
-📝 Licença
-Este projeto está sob a licença MIT.
-Veja o arquivo LICENSE para mais detalhes.
 
-👥 Equipe
 
-Desenvolvedor Principal: [Seu Nome]
-
-Design e UX: [Colaborador/Equipe]
-
-Consultoria Psicológica: [Profissional Parceiro]
-
-📞 Contato
-
-GitHub: seu-usuario
-
-Email: seuemail@exemplo.com
-
-yaml
-Copiar código
-
----
-
-Quer que eu já adapte esse README para incluir **printscreen de exemplo do sistema** (como no Lunys
