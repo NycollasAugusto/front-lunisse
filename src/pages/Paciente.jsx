@@ -71,7 +71,7 @@ export const Paciente = () => {
           patients.map((patient) => (
             <Card
               key={patient.id}
-              onClick={() => navigate(`pacientes/${patient.id}`)}
+              onClick={() => navigate(`/pacientes/${patient.id}`)}  
               className="cursor-pointer hover:shadow-lg transition-shadow p-6"
             >
               {/* Cabeçalho do Card */}

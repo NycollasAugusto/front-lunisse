@@ -19,11 +19,11 @@ import { DashboardPsicologo } from "../pages/DashboardPsicologo";
 import { Agendamento } from "../pages/Agendamentos";
 import { ChatIA } from "../pages/ChatIA";
 import { Relatorios } from "../pages/Relatorio";
-import { Paciente } from "../pages/Pacientes";
-import { PacienteDetalhes } from "../pages/PacienteDetalhe"
+import { Paciente } from "../pages/Paciente";
+import { PacienteDetalhes } from "../pages/PacienteDetalhes"
 import { useAuth } from "../context/AuthContext";
 import { Solicitacoes } from "../pages/Solicitacoes";
-import { SessaoDetalhes } from "../pages/SessãoDetalhes";
+import { SessaoDetalhes } from "../pages/SessaoDetalhes";
 
 // Rota protegida
 const ProtectedRoute = ({ children }) => {
@@ -93,7 +93,9 @@ export const AppRoutes = () => {
         <Route path="/relatorios" element={<ProtectedRoute><Relatorios /></ProtectedRoute>} />
         <Route path="/solicitacoes" element={<ProtectedRoute><Solicitacoes /></ProtectedRoute>} />
         <Route path="/pacientes" element={<ProtectedRoute><Paciente /></ProtectedRoute>} />
-        <Route path="/paciente/:id" element={
+        
+        
+        <Route path="/pacientes/:id" element={
           <ProtectedRoute>
             <PacienteDetalhes /> {/* Página de detalhes de paciente específico */}
           </ProtectedRoute>

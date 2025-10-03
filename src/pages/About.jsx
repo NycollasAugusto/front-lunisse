@@ -32,15 +32,16 @@ export const About = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
-      <main className="flex-grow py-28 space-y-4">
+      <main className="flex-grow py-20 space-y-10 space-x- px-20">
         
         {/* Card Visão */}
+        
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-[#8B3A1E] text-white p-6 rounded-2xl shadow-lg text-center"
+          className="bg-[#8B3A1E] text-white p-2 rounded-2xl shadow-lg text-center "
         >
           <h2 className="font-bold text-lg mb-4">NOSSA VISÃO</h2>
           <p className="leading-relaxed text-sm">

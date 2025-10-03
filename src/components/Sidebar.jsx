@@ -98,7 +98,7 @@ export const Sidebar = () => {
             {/* Logo com cantos arredondados */}
             <img src="/logoProvisoria.png" alt="Psicoagenda" className="w-10 h-10 rounded-lg" />
             <div>
-              <span className="text-xl font-bold text-white">Lunysse</span>
+              <span className="text-xl font-bold text-white">PsicoAgenda</span>
               <p className="text-xs text-white/60">Sistema Psicológico</p>
             </div>
           </div>
