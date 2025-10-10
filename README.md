@@ -6,7 +6,7 @@ Sistema web moderno para marcação e acompanhamento de consultas psicológicas 
 Focado em proporcionar acolhimento, acessibilidade e segurança em atendimentos psicológicos online.  
 
 
----
+
 
 ##  Sobre o Projeto  
 
@@ -19,7 +19,6 @@ A plataforma busca unir **tecnologia e bem-estar**, trazendo uma experiência si
 - Proporcionar interface acolhedora inspirada na psicologia  
 - Garantir acessibilidade e usabilidade em diferentes dispositivos  
 
----
 
 ##  Funcionalidades  
 
@@ -76,7 +75,6 @@ Explore a interface: agendamento, histórico e gestão de consultas.
 
  Estrutura do Projeto
 
-Copiar código
 psicoagenda/
  index.html        # Estrutura principal
  src/

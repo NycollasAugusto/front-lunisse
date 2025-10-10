@@ -19,8 +19,8 @@ import { DashboardPsicologo } from "../pages/DashboardPsicologo";
 import { Agendamento } from "../pages/Agendamentos";
 import { ChatIA } from "../pages/ChatIA";
 import { Relatorios } from "../pages/Relatorio";
-import { Paciente } from "../pages/Paciente";
-import { PacienteDetalhes } from "../pages/PacienteDetalhes"
+import {PacienteDetalhes} from "../pages/PacienteDetalhes"; // Import default corrigido
+import {Paciente} from "../pages/Paciente";
 import { useAuth } from "../context/AuthContext";
 import { Solicitacoes } from "../pages/Solicitacoes";
 import { SessaoDetalhes } from "../pages/SessaoDetalhes";
@@ -93,19 +93,24 @@ export const AppRoutes = () => {
         <Route path="/relatorios" element={<ProtectedRoute><Relatorios /></ProtectedRoute>} />
         <Route path="/solicitacoes" element={<ProtectedRoute><Solicitacoes /></ProtectedRoute>} />
         <Route path="/pacientes" element={<ProtectedRoute><Paciente /></ProtectedRoute>} />
-        
-        
-        <Route path="/pacientes/:id" element={
-          <ProtectedRoute>
-            <PacienteDetalhes /> {/* Página de detalhes de paciente específico */}
-          </ProtectedRoute>
-        } />
 
-        <Route path="/sessao/:sessionId" element={
-          <ProtectedRoute>
-            <SessaoDetalhes /> {/* Detalhes de sessão específica */}
-          </ProtectedRoute>
-        } />
+        <Route
+          path="/pacientes/:id"
+          element={
+            <ProtectedRoute>
+              <PacienteDetalhes /> {/* Página de detalhes de paciente específico */}
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/sessao/:sessionId"
+          element={
+            <ProtectedRoute>
+              <SessaoDetalhes /> {/* Detalhes de sessão específica */}
+            </ProtectedRoute>
+          }
+        />
 
         {/* 404 */}
         <Route path="*" element={<NotFound />} />

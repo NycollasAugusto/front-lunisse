@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { mockApi } from "../services/mockApi";
 
@@ -289,7 +289,7 @@ const SessionList = ({ sessions, onStatusUpdate, updatingSessions, navigate }) =
   );
 };
 
-export const Patient = () => {
+export const PacienteDetalhes = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { user } = useAuth();
@@ -413,7 +413,7 @@ export const Patient = () => {
           onFormChange={handleFormChange}
           onFormSubmit={handleFormSubmit}
           onFormCancel={() => setShowForm(false)}
-          onShowForm={() => setShowForm((prev) => !prev)}
+          onShowForm={() => setShowForm(true)}
           onStatusUpdate={handleStatusUpdate}
           updatingSessions={updatingSessions}
           creatingSession={creatingSession}
@@ -423,3 +423,4 @@ export const Patient = () => {
     </div>
   );
 };
+
