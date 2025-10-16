@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+  const navigate = useNavigate(); // hook do React Router para navegar
+
   return (
     <div className="bg-[#F5F2EF] min-h-screen flex flex-col items-center justify-center">
       {/* Hero Section */}
@@ -32,10 +35,17 @@ export const Home = () => {
 
         {/* Botões */}
         <div className="flex flex-wrap justify-center gap-4">
-          <button className="bg-[#C48465] text-white px-8 py-3 rounded-lg font-semibold shadow-md hover:opacity-90 transition">
+          <button
+            onClick={() => navigate("/login")} // navega para a página de login
+            className="bg-[#C48465] text-white px-8 py-3 rounded-lg font-semibold shadow-md hover:opacity-90 transition"
+          >
             Começar Agora
           </button>
-          <button className="bg-[#4B2C25] text-[#C48465] px-8 py-3 rounded-lg font-semibold shadow-md hover:opacity-90 transition">
+
+          <button
+            onClick={() => navigate("/recursos")} // navega para a página de recursos
+            className="bg-[#4B2C25] text-[#C48465] px-8 py-3 rounded-lg font-semibold shadow-md hover:opacity-90 transition"
+          >
             Conhecer Recursos
           </button>
         </div>
