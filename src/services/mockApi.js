@@ -82,7 +82,7 @@
    // Paciente de teste
    { 
      id: 5, 
-     email: 'paciente@test.com', 
+     email: 'maria@test.com', 
      password: '123456', 
      type: 'paciente', 
      name: 'Maria Santos' 

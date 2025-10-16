@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { mockApi } from "../services/mockApi";
 import { Card } from "../components/Card";
+import { Button } from "../components/Button";
+import { Input } from "../components/Input";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import {
   Users,
@@ -12,6 +14,8 @@ import {
   Mail,
   Activity,
   CheckCircle,
+  Eye,
+  Search,
 } from "lucide-react";
 
 export const Paciente = () => {
@@ -20,6 +24,12 @@ export const Paciente = () => {
   const [patients, setPatients] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // --- estados e funções do histórico ---
+  const [sessoes, setSessoes] = useState([]);
+  const [filtro, setFiltro] = useState("");
+  const [loadingSessoes, setLoadingSessoes] = useState(true);
+
+  // ---------------- Pacientes ----------------
   const loadPatients = async () => {
     setLoading(true);
     try {
@@ -43,10 +53,34 @@ export const Paciente = () => {
     return () => window.removeEventListener("focus", handleFocus);
   }, []);
 
-  if (loading) return <LoadingSpinner size="lg" />;
+  // ---------------- Histórico de Sessões ----------------
+  const loadSessions = async () => {
+    try {
+      const data = await mockApi.getAppointments(user.id, "paciente");
+      setSessoes(data);
+    } catch (error) {
+      console.error("Erro ao carregar histórico:", error);
+    } finally {
+      setLoadingSessoes(false);
+    }
+  };
 
+  useEffect(() => {
+    loadSessions();
+  }, []);
+
+  const sessoesFiltradas = sessoes.filter(
+    (s) =>
+      s.description?.toLowerCase().includes(filtro.toLowerCase()) ||
+      s.professionalName?.toLowerCase().includes(filtro.toLowerCase())
+  );
+
+  // ---------------- Loading geral ----------------
+  if (loading || loadingSessoes) return <LoadingSpinner size="lg" />;
+
+  // ---------------- Render ----------------
   return (
-    <div className="space-y-6">
+    <div className="space-y-12">
       {/* Cabeçalho */}
       <div className="flex items-center gap-3">
         <Users className="w-8 h-8 text-white" />
@@ -71,7 +105,7 @@ export const Paciente = () => {
           patients.map((patient) => (
             <Card
               key={patient.id}
-              onClick={() => navigate(`/pacientes/${patient.id}`)}  
+              onClick={() => navigate(`/pacientes/${patient.id}`)}
               className="cursor-pointer hover:shadow-lg transition-shadow p-6"
             >
               {/* Cabeçalho do Card */}
@@ -86,7 +120,9 @@ export const Paciente = () => {
                   <h3 className="text-dark text-xl font-semibold">
                     {patient.name}
                   </h3>
-                  <p className="text-sm text-dark/60">Paciente #{patient.id}</p>
+                  <p className="text-sm text-dark/60">
+                    Paciente #{patient.id}
+                  </p>
                 </div>
               </div>
 
@@ -98,13 +134,16 @@ export const Paciente = () => {
                     <Calendar className="w-4 h-4" />
                     <span>
                       Idade:{" "}
-                      <strong>{patient.age ? `${patient.age} anos` : "—"}</strong>
+                      <strong>
+                        {patient.age ? `${patient.age} anos` : "—"}
+                      </strong>
                     </span>
                   </p>
                   <p className="flex items-center gap-2">
                     <Activity className="w-4 h-4" />
                     <span>
-                      Total de Sessões: <strong>{patient.sessions || 0}</strong>
+                      Total de Sessões:{" "}
+                      <strong>{patient.sessions || 0}</strong>
                     </span>
                   </p>
                 </div>
@@ -144,6 +183,69 @@ export const Paciente = () => {
             </Card>
           ))
         )}
+      </div>
+
+      {/* Histórico de Sessões */}
+      <div>
+        <h2 className="text-2xl font-bold text-dark text-center mb-4">
+          Histórico de Sessões
+        </h2>
+
+        <Card>
+          <div className="flex items-center gap-3 mb-4">
+            <Search className="w-5 h-5 text-dark/70" />
+            <Input
+              placeholder="Filtrar por profissional ou tipo de sessão"
+              value={filtro}
+              onChange={(e) => setFiltro(e.target.value)}
+            />
+          </div>
+
+          {sessoesFiltradas.length === 0 ? (
+            <p className="text-dark/70 text-center py-6">
+              Nenhuma sessão encontrada.
+            </p>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm text-left border-t">
+                <thead>
+                  <tr className="text-dark/70 border-b">
+                    <th className="p-3">Data/Hora</th>
+                    <th className="p-3">Profissional</th>
+                    <th className="p-3">Tipo</th>
+                    <th className="p-3">Observações</th>
+                    <th className="p-3">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sessoesFiltradas.map((s) => (
+                    <tr key={s.id} className="border-b hover:bg-gray-50">
+                      <td className="p-3">
+                        {new Date(s.date).toLocaleDateString("pt-BR")} {s.time}
+                      </td>
+                      <td className="p-3">{s.professionalName || "—"}</td>
+                      <td className="p-3">{s.description}</td>
+                      <td className="p-3 truncate max-w-[150px]">
+                        {s.notes || "—"}
+                      </td>
+                      <td className="p-3">
+                        <Button
+                          size="sm"
+                          onClick={() =>
+                            alert(`Ver detalhes da sessão #${s.id}`)
+                          }
+                          className="flex items-center gap-2"
+                        >
+                          <Eye size={16} /> Ver
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </Card>
       </div>
     </div>
   );

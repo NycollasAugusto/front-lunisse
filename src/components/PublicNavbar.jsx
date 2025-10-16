@@ -9,6 +9,7 @@ export const PublicNavbar = () => {
     const navLink = [
         {to: '/', label: 'Home'},
         {to: '/about', label: 'Sobre'},
+        {to: '/contact', label: 'Contato'},
         {to: '/login', label: 'Login'}
     ];
  
